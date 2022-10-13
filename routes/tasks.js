@@ -6,14 +6,14 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     try {
         const tasks = await taskService.getTasks(req.query.quantity);
-        res.send(tasks);
+        res.json(tasks);
     } catch (error) {
         next(error)
     }
 });
 
 router.put('/', (req, res) => {
-    res.send(`task ${req.body.taskUuid} completed successfully`);
+    res.send(`task ${req.body.taskId} completed successfully!`);
 });
 
 module.exports = router;
